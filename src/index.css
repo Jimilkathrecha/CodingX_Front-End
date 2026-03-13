@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-surface-border;
+  }
+  
+  body {
+    @apply bg-surface text-white antialiased;
+    font-family: 'Sora', system-ui, sans-serif;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-500/50;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl;
+  }
+  
+  .card-elevated {
+    @apply bg-surface-elevated border border-surface-border rounded-2xl;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2.5 rounded-xl 
+           transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-brand-500/50;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface-elevated hover:bg-surface-border text-white font-medium px-5 py-2.5 rounded-xl
+           border border-surface-border transition-all duration-200 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-brand-500/30;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-surface-elevated text-gray-400 hover:text-white font-medium px-4 py-2 rounded-lg
+           transition-all duration-200;
+  }
+  
+  .input {
+    @apply w-full bg-surface-elevated border border-surface-border text-white placeholder-gray-500
+           rounded-xl px-4 py-3 text-sm outline-none focus:border-brand-500 focus:ring-2 
+           focus:ring-brand-500/20 transition-all duration-200;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-gray-300 mb-1.5;
+  }
+  
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-brand {
+    @apply badge bg-brand-500/10 text-brand-400 border border-brand-500/20;
+  }
+  
+  .badge-success {
+    @apply badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+  
+  .badge-warning {
+    @apply badge bg-amber-500/10 text-amber-400 border border-amber-500/20;
+  }
+  
+  .badge-danger {
+    @apply badge bg-red-500/10 text-red-400 border border-red-500/20;
+  }
+  
+  .badge-gray {
+    @apply badge bg-gray-500/10 text-gray-400 border border-gray-500/20;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-surface-elevated rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-brand-500 to-violet-500 rounded-full transition-all duration-700 ease-out;
+  }
+
+  .glow {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-400 hover:text-white 
+           hover:bg-surface-elevated transition-all duration-200 text-sm font-medium;
+  }
+  
+  .sidebar-link.active {
+    @apply bg-brand-500/10 text-brand-400 border border-brand-500/20;
+  }
+  
+  .stat-card {
+    @apply card p-5 flex items-center gap-4;
+  }
+  
+  .stat-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+  
+  .table-header {
+    @apply text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3 text-left;
+  }
+  
+  .table-cell {
+    @apply px-4 py-4 text-sm text-gray-300;
+  }
+  
+  .table-row {
+    @apply border-b border-surface-border hover:bg-surface-elevated/50 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-violet-400;
+  }
+  
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}
