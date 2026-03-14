@@ -12,6 +12,7 @@ import NotificationPanel from '../components/shared/NotificationPanel';
 
 const navLinks = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard', end: true },
+  { to: '/dashboard/internship', icon: BookOpen, label: 'My Program' },
   { to: '/dashboard/tasks', icon: CheckSquare, label: 'Tasks' },
   { to: '/dashboard/submissions', icon: FileText, label: 'Submissions' },
   { to: '/dashboard/certificates', icon: Award, label: 'Certificates' },

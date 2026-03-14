@@ -40,6 +40,7 @@ import AdminAnalytics from './pages/admin/Analytics';
 // Mentor pages
 import MentorDashboard from './pages/mentor/Dashboard';
 import MentorSubmissions from './pages/mentor/Submissions';
+import MyInternship from './pages/student/MyInternship';
 
 // Route guards
 const ProtectedRoute = ({ children, roles }) => {
@@ -117,6 +118,7 @@ export default function App() {
         }>
           <Route index element={<StudentDashboard />} />
           <Route path="internship/:id" element={<StudentInternship />} />
+          <Route path="internship" element={<MyInternship />} />
           <Route path="tasks" element={<StudentTasks />} />
           <Route path="tasks/:id" element={<TaskDetailPage />} />
           <Route path="submissions" element={<StudentSubmissions />} />

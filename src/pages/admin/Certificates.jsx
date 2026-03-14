@@ -109,10 +109,16 @@ function CertificateModal({ cert, onClose, onRevoke, onRestore }) {
           {/* Actions */}
           <div className="flex gap-3">
             {cert.fileUrl && (
-              <a href={cert.fileUrl} target="_blank" rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  const a = document.createElement('a');
+                  a.href = `/api/certificates/download/${cert.certificateId}`;
+                  a.download = `CodingX-${cert.certificateId}.pdf`;
+                  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                }}
                 className="btn-primary flex-1 flex items-center justify-center gap-2 text-sm">
                 <Download size={14} /> Download PDF
-              </a>
+              </button>
             )}
             <a href={verifyUrl} target="_blank" rel="noopener noreferrer"
               className="btn-secondary flex items-center gap-2 text-sm px-4">
@@ -444,10 +450,15 @@ export default function AdminCertificates() {
                             <Award size={14} />
                           </button>
                           {cert.fileUrl && (
-                            <a href={cert.fileUrl} target="_blank" rel="noopener noreferrer"
+                            <button onClick={() => {
+                              const a = document.createElement('a');
+                              a.href = `/api/certificates/download/${cert.certificateId}`;
+                              a.download = `CodingX-${cert.certificateId}.pdf`;
+                              document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                            }}
                               title="Download PDF" className="btn-ghost p-2 text-brand-400 hover:text-brand-300">
                               <Download size={14} />
-                            </a>
+                            </button>
                           )}
                           {cert.isValid
                             ? <button onClick={() => { setSelected(cert); setTimeout(() => handleRevoke(cert._id), 100); }}
